@@ -21,11 +21,9 @@ WITH
     -- ketentuan persentase laba
     CASE
       WHEN p.price <= 50000 THEN 0.1
-      WHEN p.price BETWEEN 50000
-    AND 100000 THEN 0.15
-      WHEN p.price BETWEEN 100000 AND 300000 THEN 0.2
-      WHEN p.price BETWEEN 300000
-    AND 500000 THEN 0.25
+      WHEN p.price > 50000 AND p.price <= 100000 THEN 0.15
+      WHEN p.price > 100000 AND p.price <= 300000 THEN 0.2
+      WHEN p.price > 300000 AND p.price <= 500000 THEN 0.25
       ELSE 0.3
   END
     AS persentase_gross_laba,
