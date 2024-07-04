@@ -43,7 +43,7 @@ WITH
 -- menampilkan keseluruhan kolom 'main' + nett_profit dan rating_transaksi
 SELECT
   DISTINCT main.*,
-  nett_sales-(actual_price/(1+persentase_gross_laba)) AS nett_profit,
+  (actual_price*persentase_gross_laba)-(actual_price-nett_sales) nett_profit,
   t.rating rating_transaksi
 FROM
   main,
